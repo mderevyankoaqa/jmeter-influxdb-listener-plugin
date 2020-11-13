@@ -1,0 +1,56 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 11
+version = '1.0'
+def title = 'JMeterInfluxDBListener'
+def archiveName = 'jmeter-plugin-influxdb-listener'
+
+
+repositories {
+
+    mavenCentral()
+}
+
+/*repositories {
+	maven {
+		url 'https://repo.maven.apache.org/maven2/org/apache/jmeter'
+		metadataSources {
+			mavenPom()
+			ignoreGradleMetadataRedirection()
+		}
+	}
+}*/
+
+dependencies {
+
+	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_core', version: '5.2'
+	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_components', version: '5.2'
+	implementation group: 'org.apache.jmeter', name: 'jorphan', version: '5.2'
+	implementation group: 'org.influxdb', name: 'influxdb-java', version: '2.20'
+	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+}
+
+jar {
+	manifest {
+		attributes 'Implementation-Title': title,
+				    'Implementation-Version': archiveVersion,
+				    'Main-Class': 'org.md.jmeter.influxdb.visualizer.JMeterInfluxDBBackendListenerClient'
+	}
+}
+
+task fatJar(type: Jar) {
+	manifest.from jar.manifest
+
+	archiveBaseName = archiveName
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	} {
+		exclude "META-INF/*.SF"
+		exclude "META-INF/*.DSA"
+		exclude "META-INF/*.RSA"
+	}
+	with jar
+}
