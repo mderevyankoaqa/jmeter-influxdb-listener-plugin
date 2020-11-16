@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * The data object with parameters to create Result {@link org.influxdb.dto.Point}.
  *
- * @author Mikhail Derevyanko
+ * @author Michael Derevyanko
  */
 public class SampleResultPointContext {
 

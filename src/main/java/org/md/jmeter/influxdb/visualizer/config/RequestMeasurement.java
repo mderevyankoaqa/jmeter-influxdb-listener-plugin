@@ -4,7 +4,7 @@ package org.md.jmeter.influxdb.visualizer.config;
  * Constants (Tag, Field, Measurement) names for the requests measurement.
  *
  * @author Alexander Wert
- * @author Mikhail Derevyanko (minor changes and improvements)
+ * @author Michael Derevyanko (minor changes and improvements)
  */
 public interface RequestMeasurement {
 
@@ -17,7 +17,7 @@ public interface RequestMeasurement {
 	 * Tags.
 	 *
 	 * @author Alexander Wert
-	 * @author Mikhail Derevyanko (minor changes and improvements)
+	 * @author Michael Derevyanko (minor changes and improvements)
 	 */
 	interface Tags {
 		/**
@@ -82,12 +82,10 @@ public interface RequestMeasurement {
 		 */
 		String THREAD_NAME = "threadName";
 
-
 		/**
 		 * Sent Bytes field.
 		 */
 		String SENT_BYTES = "sentBytes";
-
 
 		/**
 		 * Received Bytes field.
@@ -104,11 +102,14 @@ public interface RequestMeasurement {
 		 */
 		String CONNECT_TIME = "connectTime";
 
+		/**
+		 * Processing Time field.
+		 */
+		String PROCESSING_TIME = "processingTime";
 
 		/**
 		 * Node name field.
 		 */
 		String HITS = "hits";
-
 	}
 }

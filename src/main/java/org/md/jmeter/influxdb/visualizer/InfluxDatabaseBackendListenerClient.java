@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
  * Backend listener that writes JMeter metrics to influxDB directly.
  *
  * @author Alexander Wert
- * @author Mikhail Derevyanko (minor changes and improvements)
+ * @author Michael Derevyanko (minor changes and improvements)
  *
  */
 

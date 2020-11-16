@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * The client to work with Influx DB 1.8 or less.
  *
- *  @author Mikhail Derevyanko
+ *  @author Michael Derevyanko
  */
 public class InfluxDatabaseClient {
 

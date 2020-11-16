@@ -3,7 +3,7 @@ package org.md.jmeter.influxdb.visualizer.influxdb.client;
 /**
  * The utility to escape values before inserting.
  *
- *  @author Mikhail Derevyanko
+ *  @author Michael Derevyanko
  */
 public class InfluxDatabaseUtility {
 

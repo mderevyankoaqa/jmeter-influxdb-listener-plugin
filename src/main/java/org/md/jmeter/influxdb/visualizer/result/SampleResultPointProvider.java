@@ -8,7 +8,7 @@ import org.influxdb.dto.Point;
 /**
  * The provider of the Influxdb {@link Point} based on the sample result.
  *
- * @author Mikhail Derevyanko
+ * @author Michael Derevyanko
  */
 public class SampleResultPointProvider {
 
@@ -102,6 +102,7 @@ public class SampleResultPointProvider {
                 .addField(RequestMeasurement.Fields.RESPONSE_TIME, this.sampleResultContext.getSampleResult().getTime())
                 .addField(RequestMeasurement.Fields.LATENCY, this.sampleResultContext.getSampleResult().getLatency())
                 .addField(RequestMeasurement.Fields.CONNECT_TIME, this.sampleResultContext.getSampleResult().getConnectTime())
+                .addField(RequestMeasurement.Fields.PROCESSING_TIME, this.sampleResultContext.getSampleResult().getLatency() - this.sampleResultContext.getSampleResult().getConnectTime())
                 .addField(RequestMeasurement.Fields.HITS, samplerMetric.getHits());
     }
 }
