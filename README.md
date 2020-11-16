@@ -17,13 +17,15 @@ The supported versions:
 ## Deployment
 * Put 'jmeter-plugin-influxdb-listener-<version>.jar' file to ~<JmeterPath>\lib\ext;
 
-  ![screens](deploy1.png)
+![](img/deploy1.png)
+
 * Run JMeter and select the test plan, Add-> Listener -> Backend Listener.
 
-  ![screens](deploy2.png)
+![](img/deploy2.png)
+
 * Select from the dropdown item with the name 'org.md.jmeter.influxdb.visualizer.JMeterInfluxDBBackendListenerClient'.
 
-  ![screens](deploy3.png)
+![](img/deploy3.png)
 
 ## Plugin configuration 
 Let’s explain the plugin fields:
@@ -36,11 +38,11 @@ Let’s explain the plugin fields:
 * `influxDBPassword` - the InfluxDB user's password.
 * `influxDBDatabase` - the InfluxDB database name.
 * `retentionPolicy` - the InfluxDB database retention policy; the _autogen_ option allows to have no limitation. 
-* `samplersList` - the regex value to sort out the JMeter samplers results; the default is _.*_. For example if you have the pattern of JMeter test plan development like this - create the 'Transaction controller', add inside of the 'Transaction controller' the Sampler with request, and the name pattern 'GET->Something', lie on the see screen below.
-   
-   ![screens](testPlan.png)
-   
-   The regex to save the 'Transaction controller' names only is _^((?!->).)*$_ (not contain the _->_).
+* `samplersList` - the regex value to sort out the JMeter samplers results; the default is _.*_. For example if you have the pattern of JMeter test plan development like this - create the 'Transaction controller', add inside of the 'Transaction controller' the Sampler with request, and the name pattern 'GET->Something', like on the see screen below.
+ 
+ ![](img/testPlan.png)
+ 
+The regex to save the 'Transaction controller' names only is _^((?!->).)*$_ (not contain the _->_).
 * `useRegexForSamplerList` - allows to use the regexps if set to 'true'.
 * `recordSubSamples` - allows to save the JMeter sub samples if set to 'true'.
 * `saveResponseBodyOfFailures` - allows to save the response body of the failures.
