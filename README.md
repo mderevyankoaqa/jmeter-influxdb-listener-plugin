@@ -45,7 +45,7 @@ Let’s explain the plugin fields:
  
  ![](img/testPlan.png)
  
-The regex to save the 'Transaction controller' names only is _`^((?!->).)*$`_ (not contain the _`->`_).
+The regex _`^((?!->).)*$`_ (not contain the _`->`_) can be used to save only 'Transaction controller' names (Login, Home Page, Search). 
 * `useRegexForSamplerList` - allows to use the regexps if set to 'true'.
 * `recordSubSamples` - allows to save the JMeter sub samples if set to 'true'.
 * `saveResponseBodyOfFailures` - allows to save the response body of the failures.
