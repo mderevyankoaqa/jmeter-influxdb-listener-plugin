@@ -3,7 +3,7 @@
 ## Description
 The goal of the project is to make a quite similar online dashboard in the same way as JMeter generates.
 
-The plugin sends metrics to InfluxDB and provides the possibility to visualize the charts in Grafana, have the Aggregate report as Jmeter creates. Added the possibly to save the following extra fields in the database:
+The plugin sends metrics to InfluxDB and provides the possibility to visualize the charts in Grafana, have the Aggregate report as JMeter creates. Added the possibly to save the following extra fields in the database:
 * Response code;
 * Error message;
 * Response body of the failed requests (can be configured); 
