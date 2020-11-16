@@ -100,6 +100,8 @@ public class SampleResultPointProvider {
                 .addField(RequestMeasurement.Fields.RECEIVED_BYTES, samplerMetric.getReceivedBytes())
                 .addField(RequestMeasurement.Fields.SENT_BYTES, samplerMetric.getSentBytes())
                 .addField(RequestMeasurement.Fields.RESPONSE_TIME, this.sampleResultContext.getSampleResult().getTime())
+                .addField(RequestMeasurement.Fields.LATENCY, this.sampleResultContext.getSampleResult().getLatency())
+                .addField(RequestMeasurement.Fields.CONNECT_TIME, this.sampleResultContext.getSampleResult().getConnectTime())
                 .addField(RequestMeasurement.Fields.HITS, samplerMetric.getHits());
     }
 }

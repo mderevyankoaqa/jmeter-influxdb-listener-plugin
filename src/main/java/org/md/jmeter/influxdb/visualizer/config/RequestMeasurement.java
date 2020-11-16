@@ -84,15 +84,25 @@ public interface RequestMeasurement {
 
 
 		/**
-		 * Node name field.
+		 * Sent Bytes field.
 		 */
 		String SENT_BYTES = "sentBytes";
 
 
 		/**
-		 * Node name field.
+		 * Received Bytes field.
 		 */
 		String RECEIVED_BYTES = "receivedBytes";
+
+		/**
+		 * Latency field.
+		 */
+		String LATENCY = "latency";
+
+		/**
+		 * Connect Time field.
+		 */
+		String CONNECT_TIME = "connectTime";
 
 
 		/**
