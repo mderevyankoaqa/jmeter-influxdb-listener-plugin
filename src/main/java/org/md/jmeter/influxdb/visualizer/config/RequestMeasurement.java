@@ -77,10 +77,6 @@ public interface RequestMeasurement {
 		 */
 		String REQUEST_COUNT = "count";
 
-		/**
-		 * Thread name field.
-		 */
-		String THREAD_NAME = "threadName";
 
 		/**
 		 * Sent Bytes field.
@@ -106,10 +102,5 @@ public interface RequestMeasurement {
 		 * Processing Time field.
 		 */
 		String PROCESSING_TIME = "processingTime";
-
-		/**
-		 * Node name field.
-		 */
-		String HITS = "hits";
 	}
 }

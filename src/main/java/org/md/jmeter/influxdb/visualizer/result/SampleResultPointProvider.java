@@ -2,7 +2,6 @@ package org.md.jmeter.influxdb.visualizer.result;
 
 import org.md.jmeter.influxdb.visualizer.influxdb.client.InfluxDatabaseUtility;
 import org.md.jmeter.influxdb.visualizer.config.RequestMeasurement;
-import org.apache.jmeter.visualizers.backend.SamplerMetric;
 import org.influxdb.dto.Point;
 
 /**
@@ -14,7 +13,6 @@ public class SampleResultPointProvider {
 
     private final SampleResultPointContext sampleResultContext;
     private final String assertionFailureMessage;
-
     private Point errorPoint;
 
     /**
@@ -85,9 +83,6 @@ public class SampleResultPointProvider {
      */
     private Point.Builder getOKPointBuilder() {
 
-        SamplerMetric samplerMetric = new SamplerMetric();
-        samplerMetric.add(this.sampleResultContext.getSampleResult());
-
         return Point.measurement(RequestMeasurement.MEASUREMENT_NAME).time(this.sampleResultContext.getTimeToSet(), this.sampleResultContext.getPrecisionToSet())
                 .tag(RequestMeasurement.Tags.REQUEST_NAME, this.sampleResultContext.getSampleResult().getSampleLabel())
                 .tag(RequestMeasurement.Tags.RUN_ID, this.sampleResultContext.getRunId())
@@ -95,14 +90,12 @@ public class SampleResultPointProvider {
                 .tag(RequestMeasurement.Tags.NODE_NAME, this.sampleResultContext.getNodeName())
                 .tag(RequestMeasurement.Tags.RESULT_CODE, this.sampleResultContext.getSampleResult().getResponseCode())
                 .addField(RequestMeasurement.Fields.ERROR_COUNT, this.sampleResultContext.getSampleResult().getErrorCount())
-                .addField(RequestMeasurement.Fields.THREAD_NAME, this.sampleResultContext.getSampleResult().getThreadName())
-                .addField(RequestMeasurement.Fields.REQUEST_COUNT, samplerMetric.getTotal())
-                .addField(RequestMeasurement.Fields.RECEIVED_BYTES, samplerMetric.getReceivedBytes())
-                .addField(RequestMeasurement.Fields.SENT_BYTES, samplerMetric.getSentBytes())
+                .addField(RequestMeasurement.Fields.REQUEST_COUNT, this.sampleResultContext.getSampleResult().getSampleCount())
+                .addField(RequestMeasurement.Fields.RECEIVED_BYTES, this.sampleResultContext.getSampleResult().getBytesAsLong())
+                .addField(RequestMeasurement.Fields.SENT_BYTES, this.sampleResultContext.getSampleResult().getSentBytes())
                 .addField(RequestMeasurement.Fields.RESPONSE_TIME, this.sampleResultContext.getSampleResult().getTime())
                 .addField(RequestMeasurement.Fields.LATENCY, this.sampleResultContext.getSampleResult().getLatency())
                 .addField(RequestMeasurement.Fields.CONNECT_TIME, this.sampleResultContext.getSampleResult().getConnectTime())
-                .addField(RequestMeasurement.Fields.PROCESSING_TIME, this.sampleResultContext.getSampleResult().getLatency() - this.sampleResultContext.getSampleResult().getConnectTime())
-                .addField(RequestMeasurement.Fields.HITS, samplerMetric.getHits());
+                .addField(RequestMeasurement.Fields.PROCESSING_TIME, this.sampleResultContext.getSampleResult().getLatency() - this.sampleResultContext.getSampleResult().getConnectTime());
     }
 }
