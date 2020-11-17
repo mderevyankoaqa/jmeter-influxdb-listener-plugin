@@ -56,3 +56,6 @@ The regex `^(Home Page|Login|Search)(-success|-failure)?$` can be used to save o
 * `useRegexForSamplerList` - allows to use the regexps if set to 'true'.
 * `recordSubSamples` - allows to save the JMeter sub samples if set to 'true'.
 * `saveResponseBodyOfFailures` - allows to save the response body of the failures.
+
+## Grafa dashoard configuration 
+See instructions here https://grafana.com/grafana/dashboards/13417
