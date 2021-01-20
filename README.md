@@ -14,6 +14,7 @@ The plugin sends metrics to InfluxDB and provides the possibility to visualize t
 
 ## Compatibility
 The supported versions:
+* Java 11 - make sure that you have it.
 * InfluxDB 1.8 or less.
 * JMeter 5.3.
 
