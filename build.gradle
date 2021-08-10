@@ -2,13 +2,13 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 11
-version = '1.0'
+version = '1.1'
 def title = 'JMeterInfluxDBListener'
 def archiveName = 'jmeter-plugin-influxdb-listener'
 
 repositories {
 
-    mavenCentral()
+	mavenCentral()
 }
 
 // There's a bug in JMeter leaving extra metadata right now. This is a workaround.
@@ -23,11 +23,11 @@ class JMeterRule implements ComponentMetadataRule {
 }
 
 dependencies {
-	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_core', version: '5.3'
-	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: '5.3'
-	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_components', version: '5.3'
-	implementation group: 'org.apache.jmeter', name: 'jorphan', version: '5.3'
-	implementation group: 'org.influxdb', name: 'influxdb-java', version: '2.20'
+	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_core', version: '5.4.1'
+	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: '5.4.1'
+	implementation group: 'org.apache.jmeter', name: 'ApacheJMeter_components', version: '5.4.1'
+	implementation group: 'org.apache.jmeter', name: 'jorphan', version: '5.4.1'
+	implementation group: 'org.influxdb', name: 'influxdb-java', version: '2.21'
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
 
 	components {
@@ -42,8 +42,8 @@ dependencies {
 jar {
 	manifest {
 		attributes 'Implementation-Title': title,
-				    'Implementation-Version': archiveVersion,
-				    'Main-Class': 'org.md.jmeter.influxdb.visualizer.JMeterInfluxDBBackendListenerClient'
+				'Implementation-Version': archiveVersion,
+				'Main-Class': 'org.md.jmeter.influxdb.visualizer.JMeterInfluxDBBackendListenerClient'
 	}
 }
 
