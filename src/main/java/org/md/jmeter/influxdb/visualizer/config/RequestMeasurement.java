@@ -54,6 +54,26 @@ public interface RequestMeasurement {
 		 * Error response body.
 		 */
 		String ERROR_RESPONSE_BODY = "errorResponseBody";
+
+		/**
+		 * Error response headers.
+		 */
+		String ERROR_RESPONSE_HEADERS = "errorResponseHeaders";
+
+		/**
+		 * Error response URL.
+		 */
+		String ERROR_REQUEST_URL = "errorRequestUrl";
+
+		/**
+		 * Error request headers.
+		 */
+		String ERROR_REQUEST_HEADERS = "errorRequestHeaders";
+
+		/**
+		 * Sampler data.
+		 */
+		String SAMPLER_DATA = "samplerData";
 	}
 
 	/**

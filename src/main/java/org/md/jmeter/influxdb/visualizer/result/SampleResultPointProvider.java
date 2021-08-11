@@ -49,6 +49,10 @@ public class SampleResultPointProvider {
             this.errorPoint = this.getOKPointBuilder()
                     .tag(RequestMeasurement.Tags.ERROR_MSG, this.assertionFailureMessage)
                     .tag(RequestMeasurement.Tags.ERROR_RESPONSE_BODY, this.getErrorBody())
+                    .tag(RequestMeasurement.Tags.ERROR_RESPONSE_HEADERS, this.sampleResultContext.getSampleResult().getResponseHeaders())
+                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_HEADERS, this.sampleResultContext.getSampleResult().getRequestHeaders())
+                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_URL, this.sampleResultContext.getSampleResult().getUrlAsString())
+                    .tag(RequestMeasurement.Tags.SAMPLER_DATA, InfluxDatabaseUtility.getEscapedString(this.sampleResultContext.getSampleResult().getSamplerData()))
                     .build();
         }
 
