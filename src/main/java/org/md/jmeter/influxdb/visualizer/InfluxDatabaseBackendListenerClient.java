@@ -100,6 +100,8 @@ public class InfluxDatabaseBackendListenerClient extends AbstractBackendListener
      * Processes sampler results.
      */
     public void handleSampleResults(List<SampleResult> sampleResults, BackendListenerContext context) {
+
+
         // Gather all the listeners
         List<SampleResult> allSampleResults = new ArrayList<>();
         for (SampleResult sampleResult : sampleResults) {
