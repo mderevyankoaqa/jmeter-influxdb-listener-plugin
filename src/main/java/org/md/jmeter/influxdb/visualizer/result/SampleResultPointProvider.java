@@ -49,11 +49,13 @@ public class SampleResultPointProvider {
             this.errorPoint = this.getOKPointBuilder()
                     .tag(RequestMeasurement.Tags.ERROR_MSG, this.assertionFailureMessage)
                     .tag(RequestMeasurement.Tags.ERROR_RESPONSE_BODY, this.getErrorBody())
-                    .tag(RequestMeasurement.Tags.ERROR_RESPONSE_HEADERS, this.sampleResultContext.getSampleResult().getResponseHeaders())
-                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_HEADERS, this.sampleResultContext.getSampleResult().getRequestHeaders())
-                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_URL, this.sampleResultContext.getSampleResult().getUrlAsString())
-                    .tag(RequestMeasurement.Tags.SAMPLER_DATA, InfluxDatabaseUtility.getEscapedString(this.sampleResultContext.getSampleResult().getSamplerData()))
+                    .tag(RequestMeasurement.Tags.ERROR_RESPONSE_HEADERS, InfluxDatabaseUtility.getEscapedString(this.sampleResultContext.getSampleResult().getResponseHeaders()))
+                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_HEADERS, InfluxDatabaseUtility.getEscapedString(this.sampleResultContext.getSampleResult().getRequestHeaders()))
+                    .tag(RequestMeasurement.Tags.ERROR_REQUEST_URL, InfluxDatabaseUtility.getEscapedString(this.sampleResultContext.getSampleResult().getUrlAsString()))
+                    .tag(RequestMeasurement.Tags.SAMPLER_DATA, getSamplerData())
                     .build();
+
+
         }
 
         if (!this.sampleResultContext.isErrorBodyToBeSaved()) {
@@ -78,7 +80,22 @@ public class SampleResultPointProvider {
             return  InfluxDatabaseUtility.getEscapedString(errorBody);
         }
 
-        return "ErrorBodyIsEmpty.";
+        return "ErrorBodyIsEmpty";
+    }
+
+    /**
+     * Gets error body.
+     * @return returns body of the failed response.
+     */
+    private String getSamplerData()
+    {
+        String samplerData =  this.sampleResultContext.getSampleResult().getSamplerData();
+        if(samplerData != null && !samplerData.isEmpty())
+        {
+            return  InfluxDatabaseUtility.getEscapedString(samplerData);
+        }
+
+        return "SamplerDataIsEmpty";
     }
 
     /**
